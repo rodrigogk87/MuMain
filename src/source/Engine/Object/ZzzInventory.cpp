@@ -8291,6 +8291,8 @@ void RenderObjectScreen(int Type, int ItemLevel, int excellentFlags, int ancient
         b->BodyHeight = -100.f;
 
         if (Check_LuckyItem(Type - MODEL_ITEM))	b->BodyHeight -= 13.0f;
+        // Crystal Knight: la pechera va del pecho al cuello (z 117-160), mas arriba que las oficiales
+        if (Type == MODEL_ARMOR + CRYSTAL_KNIGHT_SET_INDEX)	b->BodyHeight = -125.f;
     }
     else if (Type >= MODEL_GLOVES && Type < MODEL_GLOVES + MAX_ITEM_INDEX)
         b->BodyHeight = -70.f;
@@ -8334,7 +8336,7 @@ void RenderObjectScreen(int Type, int ItemLevel, int excellentFlags, int ancient
         if (Type == MODEL_HELM + CRYSTAL_KNIGHT_SET_INDEX)
             Scale = 0.0072f;
         else if (Type == MODEL_ARMOR + CRYSTAL_KNIGHT_SET_INDEX)
-            Scale = 0.0058f;
+            Scale = 0.0047f;
         else if (Type == MODEL_PANTS + CRYSTAL_KNIGHT_SET_INDEX)
             Scale = 0.0036f;
         else if (Type == MODEL_GLOVES + CRYSTAL_KNIGHT_SET_INDEX)
