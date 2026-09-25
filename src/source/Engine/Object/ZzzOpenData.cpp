@@ -679,6 +679,8 @@ void OpenItems()
         gLoadData.AccessModel(MODEL_SHIELD + i, L"Data\\Item\\", L"Shield", i + 1);
 
     gLoadData.AccessModel(MODEL_GRAND_SOUL_SHIELD, L"Data\\Item\\", L"Shield", 16);
+    gLoadData.AccessModel(MODEL_ITEM + ITEM_SWORD_CRYSTAL_KNIGHT, L"Data\\Item\\", L"SwordCrystalKnight", -1);
+    gLoadData.AccessModel(MODEL_ITEM + ITEM_SHIELD_CRYSTAL_KNIGHT, L"Data\\Item\\", L"ShieldCrystalKnight", -1);
     gLoadData.AccessModel(MODEL_ELEMENTAL_SHIELD, L"Data\\Item\\", L"Shield", 17);
 
     //////////////////////////////////////////////////////////////////////////
@@ -1293,6 +1295,8 @@ void OpenItemTextures()
     }
     gLoadData.OpenTexture(MODEL_CAPE_OF_EMPEROR, L"Item\\");
     gLoadData.OpenTexture(MODEL_ITEM + ITEM_WING_CRYSTAL_KNIGHT, L"Item\\");
+    gLoadData.OpenTexture(MODEL_ITEM + ITEM_SWORD_CRYSTAL_KNIGHT, L"Item\\");
+    gLoadData.OpenTexture(MODEL_ITEM + ITEM_SHIELD_CRYSTAL_KNIGHT, L"Item\\");
 
     LoadBitmap(L"Item\\msword01_r.jpg", BITMAP_3RDWING_LAYER, GL_LINEAR, GL_REPEAT);
 

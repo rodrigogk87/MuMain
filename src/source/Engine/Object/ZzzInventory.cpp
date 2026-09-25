@@ -9099,6 +9099,11 @@ void RenderObjectScreen(int Type, int ItemLevel, int excellentFlags, int ancient
     CameraProjection::WorldToScreen(g_Camera, Position, &ScreenPos_X, &ScreenPos_Y);
 #endif //PBG_ADD_ITEMRESIZE
 
+    if (Type == MODEL_ITEM + ITEM_SWORD_CRYSTAL_KNIGHT)
+        Scale = (Scale > 0.f ? Scale : 0.0025f) * 1.9f;
+    else if (Type == MODEL_ITEM + ITEM_SHIELD_CRYSTAL_KNIGHT)
+        Scale = (Scale > 0.f ? Scale : 0.0025f) * 2.0f;
+
     o->Scale = Scale;
 
     VectorCopy(Position, o->Position);
