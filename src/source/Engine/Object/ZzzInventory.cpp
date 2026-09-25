@@ -8338,11 +8338,11 @@ void RenderObjectScreen(int Type, int ItemLevel, int excellentFlags, int ancient
         else if (Type == MODEL_ARMOR + CRYSTAL_KNIGHT_SET_INDEX)
             Scale = 0.0047f;
         else if (Type == MODEL_PANTS + CRYSTAL_KNIGHT_SET_INDEX)
-            Scale = 0.0036f;
+            Scale = 0.0040f;
         else if (Type == MODEL_GLOVES + CRYSTAL_KNIGHT_SET_INDEX)
-            Scale = 0.0062f;
+            Scale = 0.0047f;
         else if (Type == MODEL_BOOTS + CRYSTAL_KNIGHT_SET_INDEX)
-            Scale = 0.0046f;
+            Scale = 0.0038f;
     }
     else
     {
@@ -8397,6 +8397,11 @@ void RenderObjectScreen(int Type, int ItemLevel, int excellentFlags, int ancient
             Scale = 0.0017f;
         else if (GameLogic::Items::IsSocketSeedSphereModel(Type))
             Scale = 0.0017f;
+        else if (Type == MODEL_ITEM + ITEM_WING_CRYSTAL_KNIGHT)
+        {
+            Scale = 0.0015f;
+            b->BodyHeight = -20.f;
+        }
         else if (Type >= MODEL_WING && Type < MODEL_WING + MAX_ITEM_INDEX)
         {
             Scale = 0.002f;
