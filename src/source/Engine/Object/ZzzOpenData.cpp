@@ -296,6 +296,13 @@ void OpenPlayers()
         gLoadData.AccessModel(MODEL_SACRED_BOOTS + i, L"Data\\Player\\", L"BootMale", 60 + i);
     }
 
+    // Crystal Knight (set propio): Data\\Player\\HelmCrystalKnight.bmd, etc.
+    gLoadData.AccessModel(MODEL_HELM + CRYSTAL_KNIGHT_SET_INDEX, L"Data\\Player\\", L"HelmCrystalKnight", -1);
+    gLoadData.AccessModel(MODEL_ARMOR + CRYSTAL_KNIGHT_SET_INDEX, L"Data\\Player\\", L"ArmorCrystalKnight", -1);
+    gLoadData.AccessModel(MODEL_PANTS + CRYSTAL_KNIGHT_SET_INDEX, L"Data\\Player\\", L"PantCrystalKnight", -1);
+    gLoadData.AccessModel(MODEL_GLOVES + CRYSTAL_KNIGHT_SET_INDEX, L"Data\\Player\\", L"GloveCrystalKnight", -1);
+    gLoadData.AccessModel(MODEL_BOOTS + CRYSTAL_KNIGHT_SET_INDEX, L"Data\\Player\\", L"BootCrystalKnight", -1);
+
     gLoadData.AccessModel(MODEL_PHOENIX_SOUL_HELMET, L"Data\\Player\\", L"HelmMale74", -1);
     gLoadData.AccessModel(MODEL_PHOENIX_SOUL_ARMOR, L"Data\\Player\\", L"ArmorMale74", -1);
     gLoadData.AccessModel(MODEL_PHOENIX_SOUL_PANTS, L"Data\\Player\\", L"PantMale74", -1);
@@ -586,6 +593,12 @@ void OpenPlayerTextures()
         gLoadData.OpenTexture(MODEL_GLOVES + i, L"Player\\");
         gLoadData.OpenTexture(MODEL_BOOTS + i, L"Player\\");
     } // for()
+
+    gLoadData.OpenTexture(MODEL_HELM + CRYSTAL_KNIGHT_SET_INDEX, L"Player\\");
+    gLoadData.OpenTexture(MODEL_ARMOR + CRYSTAL_KNIGHT_SET_INDEX, L"Player\\");
+    gLoadData.OpenTexture(MODEL_PANTS + CRYSTAL_KNIGHT_SET_INDEX, L"Player\\");
+    gLoadData.OpenTexture(MODEL_GLOVES + CRYSTAL_KNIGHT_SET_INDEX, L"Player\\");
+    gLoadData.OpenTexture(MODEL_BOOTS + CRYSTAL_KNIGHT_SET_INDEX, L"Player\\");
 
     gLoadData.OpenTexture(MODEL_GM_CHARACTER, L"Skill\\");
 
@@ -1029,6 +1042,7 @@ void OpenItems()
         gLoadData.AccessModel(MODEL_WING_OF_STORM + i, L"Data\\Item\\", L"Wing", 8 + i);
     }
     gLoadData.AccessModel(MODEL_CAPE_OF_EMPEROR, L"Data\\Item\\", L"DarkLordRobe02");
+    gLoadData.AccessModel(MODEL_ITEM + ITEM_WING_CRYSTAL_KNIGHT, L"Data\\Item\\", L"WingCrystalKnight", -1);
 
     for (int i = 41; i <= 43; ++i)
         ::gLoadData.AccessModel(MODEL_WING + i, L"Data\\Item\\", L"Wing", i + 1);
@@ -1278,6 +1292,7 @@ void OpenItemTextures()
         gLoadData.OpenTexture(MODEL_WING_OF_STORM + i, L"Item\\");
     }
     gLoadData.OpenTexture(MODEL_CAPE_OF_EMPEROR, L"Item\\");
+    gLoadData.OpenTexture(MODEL_ITEM + ITEM_WING_CRYSTAL_KNIGHT, L"Item\\");
 
     LoadBitmap(L"Item\\msword01_r.jpg", BITMAP_3RDWING_LAYER, GL_LINEAR, GL_REPEAT);
 

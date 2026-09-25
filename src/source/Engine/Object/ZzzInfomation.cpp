@@ -482,7 +482,8 @@ bool IsWing(ITEM* ip)
         || ip->Type == ITEM_CAPE_OF_LORD
         || (ITEM_SMALL_CAPE_OF_LORD <= ip->Type && ip->Type <= ITEM_SMALL_WINGS_OF_SATAN)
         || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE)
-        || (ip->Type == ITEM_LITTLE_WARRIORS_CLOAK);
+        || (ip->Type == ITEM_LITTLE_WARRIORS_CLOAK)
+        || (ip->Type == ITEM_WING_CRYSTAL_KNIGHT);
 }
 
 int GetDropLevel(ITEM_ATTRIBUTE* p)

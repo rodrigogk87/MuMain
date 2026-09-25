@@ -399,6 +399,17 @@ constexpr int ITEM_GROUP_ETC = 15;
 #define ITEM_BOOTS		 (ITEM_GROUP_BOOTS*MAX_ITEM_INDEX)
 #define ITEM_WING		 (ITEM_GROUP_WING*MAX_ITEM_INDEX)
 #define ITEM_HELPER		 (ITEM_GROUP_HELPER*MAX_ITEM_INDEX)
+
+// Crystal Knight (set propio de rgk): casco/armadura/pantalon/guantes/botas numero 100 y alas 12 180.
+// Numeros libres en S6E3 (ningun item oficial los usa y el cliente no tiene codigo especial para ellos).
+#define CRYSTAL_KNIGHT_SET_INDEX	100
+#define ITEM_WING_CRYSTAL_KNIGHT	(ITEM_WING + 180)
+inline bool IsCrystalKnightItemType(int type)
+{
+    return type == ITEM_HELM + CRYSTAL_KNIGHT_SET_INDEX || type == ITEM_ARMOR + CRYSTAL_KNIGHT_SET_INDEX
+        || type == ITEM_PANTS + CRYSTAL_KNIGHT_SET_INDEX || type == ITEM_GLOVES + CRYSTAL_KNIGHT_SET_INDEX
+        || type == ITEM_BOOTS + CRYSTAL_KNIGHT_SET_INDEX || type == ITEM_WING_CRYSTAL_KNIGHT;
+}
 #define ITEM_POTION  	 (ITEM_GROUP_POTION*MAX_ITEM_INDEX)
 #define ITEM_ETC 		 (ITEM_GROUP_ETC*MAX_ITEM_INDEX)
 

@@ -143,6 +143,7 @@ namespace GameLogic::Items
         case ITEM_WINGS_OF_DRAGON:
         case ITEM_WINGS_OF_DARKNESS:
         case ITEM_CAPE_OF_LORD:
+        case ITEM_WING_CRYSTAL_KNIGHT:
         case ITEM_WING_OF_STORM:
         case ITEM_WING_OF_ETERNAL:
         case ITEM_WING_OF_ILLUSION:

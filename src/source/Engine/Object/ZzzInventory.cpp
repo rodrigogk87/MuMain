@@ -2091,6 +2091,10 @@ void RenderItemInfo(int sx, int sy, ITEM* ip, bool Sell, int Inventype, bool bIt
     {
         Color = TEXT_COLOR_YELLOW;
     }
+    else if (IsCrystalKnightItemType(ip->Type))
+    {
+        Color = TEXT_COLOR_GREEN_BLUE;
+    }
     else if (GameLogic::Items::IsDivineArchangelWeapon(ip))
     {
         Color = TEXT_COLOR_PURPLE;
@@ -6555,7 +6559,11 @@ void BuildGroundItemLabelDescriptor(OBJECT* o, ITEM* ip, GroundItemLabelDescript
     }
     else
     {
-        if (GameLogic::Items::IsDivineArchangelWeaponModel(o->Type))
+        if (IsCrystalKnightItemType(o->Type - MODEL_ITEM))
+        {
+            SetDescriptorTextColor(descriptor, 0.3f, 0.95f, 1.f);
+        }
+        else if (GameLogic::Items::IsDivineArchangelWeaponModel(o->Type))
         {
             SetDescriptorTextColor(descriptor, 1.f, 0.1f, 1.f);
         }
@@ -8322,6 +8330,17 @@ void RenderObjectScreen(int Type, int ItemLevel, int excellentFlags, int ancient
             Scale = 0.0032f;
         else if (Type == MODEL_GLORIOUS_GLOVES)
             Scale = 0.0032f;
+
+        if (Type == MODEL_HELM + CRYSTAL_KNIGHT_SET_INDEX)
+            Scale = 0.0072f;
+        else if (Type == MODEL_ARMOR + CRYSTAL_KNIGHT_SET_INDEX)
+            Scale = 0.0058f;
+        else if (Type == MODEL_PANTS + CRYSTAL_KNIGHT_SET_INDEX)
+            Scale = 0.0036f;
+        else if (Type == MODEL_GLOVES + CRYSTAL_KNIGHT_SET_INDEX)
+            Scale = 0.0062f;
+        else if (Type == MODEL_BOOTS + CRYSTAL_KNIGHT_SET_INDEX)
+            Scale = 0.0046f;
     }
     else
     {
