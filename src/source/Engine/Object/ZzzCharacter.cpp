@@ -6323,6 +6323,7 @@ float CharacterMoveSpeed(CHARACTER* c)
         {
             if (c->Wing.Type == MODEL_WINGS_OF_DRAGON
                 || c->Wing.Type == MODEL_WING_OF_STORM
+                || c->Wing.Type == MODEL_ITEM + ITEM_WING_CRYSTAL_KNIGHT // misma velocidad que le da el servidor (ala de 3ra rapida)
                 )
             {
                 c->Run = 40;
