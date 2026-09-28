@@ -1548,7 +1548,7 @@ WORD CalcMaxDurability(const ITEM* ip, ITEM_ATTRIBUTE* p, int Level)
         (ip->Type<ITEM_WINGS_OF_SPIRITS || ip->Type>ITEM_WINGS_OF_DARKNESS) &&
         !GameLogic::Items::IsDivineArchangelWeapon(ip)
         && ip->Type != ITEM_CAPE_OF_LORD
-        && (ip->Type<ITEM_WING_OF_STORM || ip->Type>ITEM_CAPE_OF_EMPEROR)
+        && (ip->Type<ITEM_WING_OF_STORM || ip->Type>ITEM_CAPE_OF_EMPEROR) && ip->Type != ITEM_WING_CRYSTAL_KNIGHT
         && (ip->Type<ITEM_WINGS_OF_DESPAIR || ip->Type>ITEM_WING_OF_DIMENSION)
         && !(ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE))
     {
@@ -1753,7 +1753,7 @@ void GetItemName(int iType, int iLevel, wchar_t* Text)
         else
             mu_swprintf(Text, L"%ls +%d", p->Name, iLevel);
     }
-    else if ((iType >= ITEM_WING_OF_STORM && iType <= ITEM_CAPE_OF_EMPEROR) || (iType >= ITEM_WINGS_OF_DESPAIR && iType <= ITEM_WING_OF_DIMENSION)
+    else if ((iType >= ITEM_WING_OF_STORM && iType <= ITEM_CAPE_OF_EMPEROR) || iType == ITEM_WING_CRYSTAL_KNIGHT || (iType >= ITEM_WINGS_OF_DESPAIR && iType <= ITEM_WING_OF_DIMENSION)
         || (iType == ITEM_CAPE_OF_OVERRULE))
     {
         if (iLevel == 0)
@@ -2136,7 +2136,7 @@ void RenderItemInfo(int sx, int sy, ITEM* ip, bool Sell, int Inventype, bool bIt
     }
 
     if ((ip->Type >= ITEM_WINGS_OF_SPIRITS && ip->Type <= ITEM_WINGS_OF_DARKNESS) || ip->Type == ITEM_CAPE_OF_LORD
-        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR)
+        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT
         || (ip->Type >= ITEM_WINGS_OF_DESPAIR && ip->Type <= ITEM_WING_OF_DIMENSION)
         || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE))
     {
@@ -2419,7 +2419,7 @@ void RenderItemInfo(int sx, int sy, ITEM* ip, bool Sell, int Inventype, bool bIt
         else
             mu_swprintf(TextList[TextNum], L"%ls +%d", p->Name, Level);
     }
-    else if ((ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR) || (ip->Type >= ITEM_WINGS_OF_DESPAIR && ip->Type <= ITEM_WING_OF_DIMENSION)
+    else if ((ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT || (ip->Type >= ITEM_WINGS_OF_DESPAIR && ip->Type <= ITEM_WING_OF_DIMENSION)
         || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE))
     {
         if (Level == 0)
@@ -4238,7 +4238,7 @@ void RenderItemInfo(int sx, int sy, ITEM* ip, bool Sell, int Inventype, bool bIt
     }
     else if (GameLogic::Items::IsThirdTierWing(ip))
     {
-        mu_swprintf(TextList[TextNum], I18N::Game::IncreaseDOfDamage, 39 + Level * 2);
+        mu_swprintf(TextList[TextNum], I18N::Game::IncreaseDOfDamage, (ip->Type == ITEM_WING_CRYSTAL_KNIGHT ? 43 : 39) + Level * 2);
         TextListColor[TextNum] = TEXT_COLOR_WHITE; TextBold[TextNum] = false; TextNum++;
         if (ip->Type == ITEM_CAPE_OF_EMPEROR || ip->Type == ITEM_CAPE_OF_OVERRULE)
         {
@@ -4246,7 +4246,7 @@ void RenderItemInfo(int sx, int sy, ITEM* ip, bool Sell, int Inventype, bool bIt
         }
         else
         {
-            mu_swprintf(TextList[TextNum], I18N::Game::AbsorbDOfDamage, 39 + Level * 2);
+            mu_swprintf(TextList[TextNum], I18N::Game::AbsorbDOfDamage, (ip->Type == ITEM_WING_CRYSTAL_KNIGHT ? 43 : 39) + Level * 2);
         }
         TextListColor[TextNum] = TEXT_COLOR_WHITE; TextBold[TextNum] = false; TextNum++;
         mu_swprintf(TextList[TextNum], I18N::Game::IncreaseSpeed);
@@ -4486,7 +4486,7 @@ void RenderItemInfo(int sx, int sy, ITEM* ip, bool Sell, int Inventype, bool bIt
     if ((p->Durability || p->MagicDur) &&
         ((ip->Type < ITEM_WING || ip->Type >= ITEM_HELPER) && ip->Type < ITEM_POTION) ||
         (ip->Type >= ITEM_WING && ip->Type <= ITEM_WINGS_OF_DARKNESS)
-        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION)
+        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT
         || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE))
     {
         bDurExist = TRUE;
@@ -5732,7 +5732,7 @@ void RenderRepairInfo(int sx, int sy, ITEM* ip, bool Sell)
 
     if ((ip->Type >= ITEM_WINGS_OF_SPIRITS && ip->Type <= ITEM_WINGS_OF_DARKNESS)
         || ip->Type >= ITEM_CAPE_OF_LORD
-        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR)
+        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT
         || (ip->Type >= ITEM_WINGS_OF_DESPAIR && ip->Type <= ITEM_WING_OF_DIMENSION)
         || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE))
     {
@@ -5808,7 +5808,7 @@ void RenderRepairInfo(int sx, int sy, ITEM* ip, bool Sell)
     }
     else if ((ip->Type >= ITEM_WINGS_OF_SPIRITS && ip->Type <= ITEM_WINGS_OF_DARKNESS)
         || ip->Type >= ITEM_CAPE_OF_LORD
-        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR)
+        || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_CAPE_OF_EMPEROR) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT
         || (ip->Type >= ITEM_WINGS_OF_DESPAIR && ip->Type <= ITEM_WING_OF_DIMENSION)
         || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE))
     {

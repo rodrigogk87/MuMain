@@ -1075,7 +1075,7 @@ void CalcPartType(ITEM* ip)
         ip->Part = EQUIPMENT_BOOTS;
     else if (ip->Type >= ITEM_WING && ip->Type < ITEM_ORB_OF_TWISTING_SLASH)
         ip->Part = EQUIPMENT_WING;
-    else if (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION)
+    else if ((ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT)
         ip->Part = EQUIPMENT_WING;
     else if (ip->Type == ITEM_DARK_RAVEN_ITEM)
         ip->Part = EQUIPMENT_WEAPON_LEFT;
@@ -1332,7 +1332,7 @@ void SetItemAttributes(ITEM* ip)
 
                 ip->SpecialNum++;
             }
-            else if (ip->Type == ITEM_WING_OF_STORM)
+            else if (ip->Type == ITEM_WING_OF_STORM || ip->Type == ITEM_WING_CRYSTAL_KNIGHT)
             {
                 if (ip->OptionType == 0)
                 {
@@ -1863,7 +1863,7 @@ int64_t ItemValue(ITEM* ip, int goldType)
         }
     }
     else if (((Type == 12 && (ip->Type > ITEM_WINGS_OF_DARKNESS
-        && !(ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION)
+        && !((ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT)
         && (ip->Type != ITEM_CAPE_OF_OVERRULE)
         )) || Type == 13 || Type == 15))
     {
@@ -1899,7 +1899,7 @@ int64_t ItemValue(ITEM* ip, int goldType)
         case 14:Level2 += 305; break;
         case 15:Level2 += 365; break;
         }
-        if ((Type == 12 && ip->Type <= ITEM_WINGS_OF_DARKNESS) || ip->Type == ITEM_CAPE_OF_LORD || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION)
+        if ((Type == 12 && ip->Type <= ITEM_WINGS_OF_DARKNESS) || ip->Type == ITEM_CAPE_OF_LORD || ((ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT)
             || (ip->Type == ITEM_CAPE_OF_OVERRULE))
         {
             Gold = (long long)(40000000 + ((40 + Level2) * Level2 * Level2 * 11));
@@ -1951,7 +1951,7 @@ int64_t ItemValue(ITEM* ip, int goldType)
             case AT_LIFE_REGENERATION:
                 if ((Type == 12 && ip->Type <= ITEM_WINGS_OF_DARKNESS)
 
-                    || (ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION)
+                    || ((ip->Type >= ITEM_WING_OF_STORM && ip->Type <= ITEM_WING_OF_DIMENSION) || ip->Type == ITEM_WING_CRYSTAL_KNIGHT)
                     || (ip->Type >= ITEM_CAPE_OF_FIGHTER && ip->Type <= ITEM_CAPE_OF_OVERRULE)
                     )    //  날개.
                 {

@@ -176,6 +176,7 @@ namespace GameLogic::Items
     {
         return (pItem->Type >= ITEM_WING_OF_STORM && pItem->Type <= ITEM_CAPE_OF_EMPEROR)
             || pItem->Type == ITEM_WING_OF_DIMENSION
+            || pItem->Type == ITEM_WING_CRYSTAL_KNIGHT
             || pItem->Type == ITEM_CAPE_OF_OVERRULE;
     }
 

@@ -656,7 +656,7 @@ void CNewUITrade::BackUpYourInven(ITEM* pYourItemObj)
         || (COMGEM::isCompiledGem(pYourItemObj))
         || (pYourItemObj->Type >= ITEM_WING && pYourItemObj->Type <= ITEM_WINGS_OF_DARKNESS)
         || (pYourItemObj->Type >= ITEM_CAPE_OF_LORD)
-        || (pYourItemObj->Type >= ITEM_WING_OF_STORM && pYourItemObj->Type <= ITEM_WING_OF_DIMENSION)
+        || (pYourItemObj->Type >= ITEM_WING_OF_STORM && pYourItemObj->Type <= ITEM_WING_OF_DIMENSION) || pYourItemObj->Type == ITEM_WING_CRYSTAL_KNIGHT
         || (pYourItemObj->Type == ITEM_JEWEL_OF_CHAOS)
         || (pYourItemObj->Type >= ITEM_CAPE_OF_FIGHTER && pYourItemObj->Type <= ITEM_CAPE_OF_OVERRULE)
         || ((pYourItemObj->Level > 4 && pYourItemObj->Type < ITEM_WING) || pYourItemObj->ExcellentFlags > 0))
